@@ -1,0 +1,2 @@
+-> Para evitar el uso de taladrando props podemos usar {children}
+   o utilizar un contexto
