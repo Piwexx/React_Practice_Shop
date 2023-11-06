@@ -1,2 +1,4 @@
 -> Para evitar el uso de props driling podemos usar {children}
    o utilizar un contexto
+
+Min 1.28

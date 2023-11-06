@@ -1,9 +1,11 @@
 /* eslint-disable react/prop-types */
 import './Products.css'
 import {AddToCartIcon} from  '../Icon.jsx'
+import {useCart} from  '../../hooks/useCart.jsx'
 
 // eslint-disable-next-line react/prop-types
 export const Products = ({products}) => {
+  const {addToCart} = useCart()
   return (
     <main className='products'>
         <ul>
@@ -14,7 +16,7 @@ export const Products = ({products}) => {
                         <strong>{product.title}</strong>- ${product.price}
                     </div> 
                     <div>
-                        <button>
+                        <button onClick={()=>addToCart(product)}>
                            <AddToCartIcon/>
                         </button>
                     </div>
