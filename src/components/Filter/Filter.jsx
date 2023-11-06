@@ -1,25 +1,23 @@
 /* eslint-disable react/prop-types */
-import { useState,useId } from 'react'
+import {useId } from 'react'
 import  './filter.css'
+import { useFilters } from '../../hooks/useFilters'
 
-export const Filter = ({changeFilters}) => {
-  const [minPrice,setMinPrice] = useState(0)
+export const Filter = () => {
+  const {filters,setFilters} = useFilters()
   const minPriceFilterId = useId()
   const categoryFilterId = useId()
 
   const handleChangeMinPrice = (event) =>{
-    // Dos fuentes de la verdad (MAL)
-    setMinPrice(event.target.value)
-    changeFilters(prevState =>({
+    // Usar siempre una sola fuente de la verdad
+    setFilters(prevState =>({
       ...prevState,
       minPrice:event.target.value 
     }))
   }
 
   const handleChangeCategory = (event) =>{
-    //Estamos pasando la funcion de actualizar estado
-    //nativa de react a un componente hijo (MAL)
-    changeFilters(prevState =>({
+    setFilters(prevState =>({
       ...prevState,
       category:event.target.value 
     }))
@@ -35,9 +33,10 @@ export const Filter = ({changeFilters}) => {
           type="range"
           min="0" 
           max="10000"
+          value={filters.minPrice}
           onChange={handleChangeMinPrice}>
         </input>
-        <span>${minPrice}</span>
+        <span>${filters.minPrice}</span>
       </div>
 
       <div>

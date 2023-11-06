@@ -1,2 +1,2 @@
--> Para evitar el uso de taladrando props podemos usar {children}
+-> Para evitar el uso de props driling podemos usar {children}
    o utilizar un contexto

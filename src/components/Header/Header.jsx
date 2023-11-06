@@ -1,11 +1,11 @@
 /* eslint-disable react/prop-types */
 import { Filter } from "../Filter/Filter"
 
-export const Header = ({changeFilters}) => {
+export const Header = () => {
   return (
     <>
      <h1>React Shop</h1>
-     <Filter changeFilters={changeFilters}/>
+     <Filter/>
     </>
   )
 }
