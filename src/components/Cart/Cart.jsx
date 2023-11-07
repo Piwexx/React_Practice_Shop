@@ -2,6 +2,8 @@ import { useId } from 'react'
 import {useCart} from  '../../hooks/useCart.jsx'
 import {CartIcon,ClearCartIcon} from   '../Icon.jsx'
 import  './cart.css'
+import { CartItem } from '../CartItem/CartItem.jsx'
+
 export const Cart = () => {
  const {cart,clearCart,addToCart} = useCart()
  const cartCheckboxId = useId()
@@ -13,26 +15,17 @@ export const Cart = () => {
         </label>
         <input style={{display:'none'}}id={cartCheckboxId} type="checkbox"></input>
         <aside className='cart'>
-          <ul>
-            {cart.map(product =>(
-                <li key={product.id}>
-                    <img 
-                    src={product.thumbnail}
-                    alt={product.title}
-                    />
-                    <div>
-                        <strong>{product.title}</strong> - ${product.price}
-                    </div>
-                    <footer>
-                        <small>
-                            Qty:{product.quantity}
-                        </small>
-                        <button onClick={()=>{addToCart(product)}}>+</button>
-                    </footer>
-                </li>
-             ))
+        <ul>
+            {
+             cart.map(product => (
+                 <CartItem 
+                    key={product.id} 
+                    addToCart={()=>{addToCart(product)}}
+                    {...product}
+                 />
+              ))
             }
-            </ul>
+        </ul>
             <button onClick={clearCart}>
                 <ClearCartIcon/>
             </button>

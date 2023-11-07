@@ -5,13 +5,14 @@ import {CartContext} from  '../context/cart'
 
 export const useCart = () => {
  const { 
-   cart,
-   addToCart,
-   clearCart} = useContext(CartContext)
+  cart,
+  addToCart,
+  clearCart,
+  removeFromCart} = useContext(CartContext)
 
  if(cart === undefined){
     throw new Error("UseCart must be used within a CartProvider")
  }
  
- return { cart,addToCart,clearCart} 
+ return {cart,addToCart,clearCart,removeFromCart} 
 }
