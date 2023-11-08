@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 
 export const CartItem = ({id,thumbnail,title,price,quantity,addToCart}) => {
-
+ console.log({id,thumbnail,title,price,quantity,addToCart})
   return (
     <>
         <li key={id}>
